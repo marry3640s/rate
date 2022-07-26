@@ -721,7 +721,7 @@ char StockNameListEx2[][64] =
 };
 char StockNameListt[][64] =
 {
-	"SPSM","LMND"
+	"ERAS"
 };
 
 char StockNameList[][64] =
@@ -1468,7 +1468,7 @@ char StockNameList[][64] =
 	"GEO", "MVST", "PBI", "BBBY", "MNMD", "EXPR",
 	"NGMS", "CNTY", "INSE", "GMBLP", "AGS", "FLL",
 	"CDRO", "GAN", "CPHC", "BRAG", "TBP", "XXII",
-	"FSM", "EXK", "SVM", "NEWP", "GATO", "XXII",
+	"FSM", "EXK", "SVM", "NEWP", "GATO", "HLX",
 	"MVIS", "WKHS", "KNDI", "CENN", "SEV", "BIRD",
 	"CBD", "CENX", "AVD", "IPI", "NVX", "MASS",
 
@@ -1556,6 +1556,9 @@ void WriteRateToFile(int mIndex,int nStockIndex,double price)
 	char pszInitDate[32] = "";
 	sprintf_s(pszInitDate, 32, "%04d%02d%02d", currentTime.wYear, currentTime.wMonth, currentTime.wDay);
 	int days = get_days(pszInitDate, OptionDataList[mIndex]) + 1;
+
+	if (price <= 0.0001)
+		return;
 	double fddd = StrikeList[mIndex][nStockIndex] - price;
 	double fRa = price / fddd;
 	double fRate = fRa * 365 / days * 100;
@@ -1606,7 +1609,7 @@ DWORD WINAPI RepDataThread(LPVOID lpParam)
 				for (int j = nMktId; j > nMktId - nEachSelect; j--)
 				{
 					
-					if (bReqSuc[m][j%10000] == false && bFalg[m][j % 10000] == true)
+					if (bReqSuc[m][j%10000] == false && bFalg[m][j % 10000] == true && bidPriceList[m][j % 10000]>=0.001)
 					{
 						double price = (bidPriceList[m][j % 10000] + askPriceList[m][j % 10000]) / 2;
 						WriteRateToFile(m, j % 10000, price);
@@ -1623,7 +1626,7 @@ DWORD WINAPI RepDataThread(LPVOID lpParam)
 			{
 			
 
-				if (bReqSuc[m][k % 10000] == false && bFalg[m][k % 10000] == true)
+				if (bReqSuc[m][k % 10000] == false && bFalg[m][k % 10000] == true && bidPriceList[m][k % 10000] >= 0.001)
 				{
 					double price = (bidPriceList[m][k % 10000] + askPriceList[m][k % 10000]) / 2;
 					WriteRateToFile(m, k % 10000, price);
@@ -1723,7 +1726,7 @@ void TestCppClient::GetOptionStrikeList()
 {
 	DWORD ThreadID;
 	int nDataCount = sizeof(OptionDataList) / 32;
-	for (int m = 0; m < /*nDataCount*/2; m++)
+	for (int m = 2; m < nDataCount; m++)
 	{
 		StListInfo *pInfo = (StListInfo *)malloc(sizeof(StListInfo));
 		pInfo->mIndex = m;
@@ -1751,9 +1754,9 @@ void TestCppClient::contractOperations()
 	GetLocalTime(&currentTime);*/
 	//return;
 
-	/*GetOptionStrikeList();
-	m_state = ST_CONTRACTOPERATION_ACK;
-	return;*/
+	//GetOptionStrikeList();
+	//m_state = ST_CONTRACTOPERATION_ACK;
+	//return;
 
 	//! [reqcontractdetails]
 	DWORD ThreadID;
