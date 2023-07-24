@@ -86,7 +86,7 @@ void gamelog::WriteLogWithHandle(HANDLE hFile, char *pszBuffer)
 	DWORD dwWrite;
 	if (hFile == 0 || pszBuffer == 0)
 		return;
-	if (strlen(pszBuffer)>2048)
-		return;
+	/*if (strlen(pszBuffer)>2048)
+		return;*/
 	WriteFile(hFile, pszBuffer, strlen(pszBuffer), &dwWrite, 0);
 }

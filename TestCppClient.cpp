@@ -601,885 +601,27 @@ void TestCppClient::optionsOperations()
 	m_state = ST_OPTIONSOPERATIONS_ACK;
 }
 
-
-char StockNameListE[][64] =
+char HKStockNameList[][64]=
 {
-	"GOOG","TSLA","QQQ","MSFT","CRWD","META",
-	"WHR","BIDU","AAPL","GME","BABA","AMZN",
-	"ABNB","DHI","DASH","JD","PDD","CRSP",
-	"IBKR","GTLB","FUTU","ARKK","U","ENB",
-
-	"RBLX","FVRR","ZLAB","CPE","INTC","XPEV",
-	"RIVN","AR","PBF","UPST","BILI","PARA",
-	"DWAC","LAC","LMND","PATH","BTU","BE",
-	"M","BEKE","CLF","ICPT","EDIT","AMC",
-
-	"AAL","LYFT","DWNG","TWOU","FGEN","OZON",
-	"YANG","CXW","ACCD","PTON","CEE","RDFN",
-	"FSR","GTBIF","MARA","DFFN","COTY","KOSS",
-	"SPCE","GDRX","SOFI","RSX","NKLA","TME",
-
-	"VIRI","TIGR","RKLB","YALA","CAN","GNFT",
-	"TLRY","CRON","CRLBF","FUBO","XYF","CGC",
-	"GOEV","GRAB","DBVT","AMRS","YSG","RLX",
-	"BQ","PSFE","OUST","XNET","BKYI","ZY",
-
-	"ZH","GTH","SOLO","ASTR","ACB","SKLZ",
-	"CTRM","BEST","PHUN","GVP","BVXV","OGZPY",
-	"CLVR","OGI","VLDR","RAAS","BXRX","TIRX",
-	"BTCM","EBON","RMO","MTCR","MUX","MF",
-
-
-	"SNDL","CRBP","NAK","HEXO","KERN","ORPHY",
-	"COST","ADBE","ARGX","MA","MDB","MCD",
-	"ISRG","BGNE","NFLX","MRNA","CRM","AXP",
-	"PWR","WMT","ZM","XOP","OAS","NKE",
-
-	"OKTA","ROKU","CVS","PM","TWLO","SAP",
-	"NRGD","ETSY","XEC","MPC","TSM","PCAR",
-	"AMD","ATVI","SE","MS","NVAX","ROST",
-	"DASH","PYPL","EQR","WLL","LPI","SQ",
-
-	"CLR","SPTY","SCHW","KO","OXY","WYNN",
-	"LEGN","W","NET","NWN","AIG","YUMC",
-	"C","KRA","AA","OVV","HP","PLCE",
-	"TDOC","BTI","WFC","KHC","ATHM","TWTR",
-
-
-	"UAL","SAGE","SHOP","Z","RCL","EQT",
-	"SM","HOG","HSBS","SPR","VIAC","MGM",
-	"KSS","AVID","ZNH","STOR","BZ","TCOM",
-	"RRC","WES","CVNA","AFRM","NIO","UBER",
-
-	"COG","SSL","SVMK","VREX","RMBS","SOHOO",
-	"PLUG","CEA","SSPK","TRIP","GOOS","X",
-	"NOV","CNX","CNK","SNAP","DVAX","MCS",
-	"ARCE","VALE","GBTC","DKNG","ALT","CRK",
-
-	"F","NCLH","IMAB","GT","MSOS","PCG",
-	"VIPS","QS","BTWN","PTGX","AM","MAC",
-	"CCL","HOOD","STNE","GHL","INSE","FTCH",
-	"HDSN","NTZ","BCS","NIU","RAD","AHT",
-
-	"AZUL","LUKOY","JMIA","API","SWN","CDEV",
-	"MLCO","SFIX","TEDU","BLUE","MOMO","NXTC",
-	"TAL","PRVB","FINV","GRWG","FCEL","GRCL",
-	"IQ","AEG","HUYA","UK","NMR","BNR",
-
-	"NERV","HRVSF","RIG","VFF","PHX","BCLI",
-	"IH","CRTX","BKKT","HTBX","SLQT","DIDI",
-	"CJJD","CMRX","OVID","NM","OCFT","DUO",
-	"CDXC","EDSA","SXTC","RIDE","BYSI","WISH",
-
-	"AMRN","UTME","ADVM","BLCT","MDVL","METX",
-	"IMRA","FAMI","MLND","KRKR","APRE","CNTB",
-	"GOVX","TISI","CMCM","BEDU","CYCN","WNW",
-	"EZGO","VTVT","HOFV","UBX","GOCO","KRBP",
-
-	"MKD","CLRB","FMCC","QH","YCBD","TRX",
-	"PIXY","GLG","MTC","NTES","SIMO","JKS",
-	"DQ","PTR","SNP","CHT","HTHT","LI",
-	"RGC","CSIQ","GDS","RENN","YY","ZTO",
-
-	"EDU","WB","HUDI","HNP","NOAH","SHI",
-	"SOHU","QFIN","HCM","HOLI","FEDU","HLG",
-	"BZUN","ACH","EH","CYD","YMM","DADA",
-	"PUYI","SEED","LFC","CD","MNSO","UMC",
-
-	"HYW","HIMX","SVA","NAAS","DDL","LU",
-	"VNET","CGA","STG","ASX","FANH","SOL",
-	"FFHL","HKIT","FENG","OPRA","DAO","KC",
-	"EM","NTP","GHG","DOYU","UXIN","GOTU",
-
-	"BEAM","NTLA","SGMO","LIND","UAL","HA"
-
+	"981","241","6","6862","9988",
+	"2319","2269","388","288","762",
+	"1093","12","939","1177","2020",
+	"2331","1810","1044","1876","66",
+	"1113","1","2318","16","881",
+	"823","941","1299","386","11",
+	"2313","700","175","1211","2",
+	"3988","1398","9633","3690","2382",
+	"688","2628","267","992","2388",
+	"3","9999","1109","857","3968",
+	"883","5","968","868","1088",
+	"17","1928","2007","960","9888",
+	"27","9618","669","1024","1772",
 
 };
 
-char StockNameListEx2[][64] =
-{
-	"CRSP","BLUE","BEAM","NTLA","EDIT","SGMO",
-	"CCL","NCLH","RCL","LIND","AAL","UAL",
-	"HA","AZUL","DAL","LUV","CPA","SKYW",
-	"ALGT","MESA","ULCC","ALK","GOL","JBLU",
-	"VLRS","RYAAY","CEA","ZNH","SNCY","SAVE",
-	"ALGT","MESA","ULCC","ALK","GOL","JBLU",
 
-	"UP","JOBY","MHK","BSET","PRPL","LEG",
-	"LZB","LIVE","TPX","LOVE","ETD","HOFT",
-	"FLXS","DXYN","NVFY","NTZ","AXL","ANDT",
-	"XT","DAN","GTX","REE","LEA","UFAB",
-	"MGA","CPS","XPEL","APTV","KNDI","ALV",
-	"VC","SLDP","LCII","MOD","LAZR","BWA",
 
-	"QS","MPAA","GTXAP","FOXF","HLLY","THRM",
-	"GNTX","SMP","SRI","FRSX","TEN","CAAS",
-	"DORM","PATK","STRT","SYPR","SUP","HZN",
-	"GME","CONN","RCII","BBY","EM","AER",
-	"AL","AIR","ATSG","AIRT","RMO","VLDR",
-	"MVIS","GT","LCII","MOD","LAZR","BWA",
-};
-char StockNameListt[][64] =
-{
-	"ERAS"
-};
-
-char StockNameList[][64] =
-{
-	"AAPL","MSFT","GOOG","AMZN","TSLA","BRK.A",
-	"AVGOP","UNH","JNI","META","V","TSM",
-	"NVDA","XOM","PG","SPY","VMT","JPM",
-	"MA","HD","BABA","PEE","LLY","IVV",
-	"CVX","KO","ABBV","BAC","VTI","NVO",
-	"VOO","MRK","PEP","COST","TM","VZ",
-
-	"TMO","AZN","AVGO","PCGU","ABT","ORCL",
-	"MCD","NVS","TBS","DHR","TBB","CMCSA",
-	"CSCO","ADBE","SHEL","ASML","ACN","DIS",
-	"TMUS","CRM","NKE","BMY","NEE","UPS",
-	"QQQ","INTC","WFC","QCOM","T","PM",
-	"TXN","RTX","RY","LIN","MS","AMGN",
-
-	"UNP","BHP","SNY","IBM","CVS","HSBS",
-	"AMD","TEE","AMT","HON","SCHW","MDT",
-	"SPGI","UL","LOW","ELV","TD","LMT",
-	"INTU","HDB","BUD","COP","EQNR","GS",
-	"GSK","AXP","SONY","SAP","DEO","VTV",
-	"JD","CAT","RIO","BLK","BTI","PLD",
-
-	"DE","VEA","C","SBUX","ADP","CI",
-	"EL","BA","MDLZ","NOW","BP","CHTR",
-	"ENB","IEFA","DUK","PYPL","ZTS","CB",
-	"PTR","AGG","BND","GILD","NFLX","AMAT",
-	"MMC","ADI","MO","CNI","SO","INFY",
-	"VRTX","MMM","CCI","SYK","PBR","CME",
-
-
-	"NOC","ISRG","PDD","BKNG","BAM","GE",
-	"VWO","TJX","MRNA","BNS","USB","VUG",
-	"PGR","BX","BDX","PBR.A","MUFG","TGT",
-	"IBN","REGN","CP","CL","MU","PNC",
-	"BMO","D","SHW","IEMG","AMX","VALE",
-	"TFC","WM","AMOV","CSX","ABNB","HUM",
-
-	"VIG","IJR","GD","EW","FISV","ATVI",
-	"GJR","IWF","EOG","AESC","FDX","GJO",
-	"AON","EQIX","FIS","ITW","GJP","GLD",
-	"IJH","LRCX","DG","CNQ","STZ.B","PSA",
-	"EPD","OXY","NTES","UBS","SNP","NSC",
-	"BSX","ICE","GJT","KDP","APD","RELX",
-
-	"MNST","TRI","IWD","PXD","CNC","MCO",
-	"ETN","ENBA","IWM","HCA","MET","ABB",
-	"BIDU","TRP","PANW","TEAM","AEP","FTNT",
-	"KHC","NGG","VO","MCK","EMR","SNPS",
-	"KLAC","VMW","F","SLB","SNOW","NEM",
-	"SRE","GM","KMB","MAR","GIS","NIMC",
-
-	"HSY","ECL","LHX","MPC","BCE","EFA",
-	"TAK","LFC","VYM","SYY","STZ","CM",
-	"VXUS","EXC","VOD","ORLY","VLO","SU",
-	"CNDS","MHNC","UBER","COF","AZO","O",
-	"ROP","PAYX","HMC","SMFG","NTR","ADM",
-	"SHOP","SAN","ITOT","SE","RSG","AIG",
-
-	"CRWD","IQV","NXPI","ITUB","ABEV","VB",
-	"TRV","BNTX","E","PSX","MRVL","CTAS",
-	"STLA","XLK","APH","BSV","WDS","VNQ",
-	"FCX","SQ","CTVA","BSBR","XLV","XEL",
-	"KMI","WMB","ADSK","WELL","SCCO","HBANO",
-	"DLTR","DOW","SPG","TEL","DLR","PRU",
-
-	"AFL","LI","LULU","A","HBANM","CMG",
-	"ALL","VGT","WDAY","MSI","SCHD","AJG",
-	"RACE","ING","NIO","ALC","SBAC","DVN",
-	"MSCI","EA","KR","LYG","CTSH","WBM",
-	"BK","BF.F","XLE","BBD","MFC","YUM",
-	"SGEN","CVE","MELI","ED","PUK","MCHP",
-
-	"WBA","BF.A","LQD","JCI","BAX","RTN",
-	"HPQ","CHT","LCID","ZM","PH","DELL",
-	"WEC","RMD","LNG","BIIB","GPN","WCN",
-	"HLT","VEEV","TIP","PEG","DDOG","CARR",
-	"DXCM","TU","VEU","IDXX","TT","VICI",
-	"ANET","TSN","ET","IFF","BCS","ODFL",
-
-	"MFG","AQNU","ABC","TDG","ILMN","MPLX",
-	"HES","RSP","APO","GOLD","OTIS","NUE",
-	"MUB","XLE","FAST","ES","IVW","ORAN",
-	"CMI","MTB","HBANP","DASH","DD","SABRP",
-	"BKR","LYB","IAU","STM","VIT","DFS",
-	"TEF","PCAR","EQR","KKR","NWG","VRSK",
-
-	"PPG","BBDO","SCHX","GLW","IMO","RIVN",
-	"MTD","AWK","FRC","SHY","AVB","DIA",
-	"CPRT","USMV","SLF","IIVIP","CPNG","CRH",
-	"TLK","ROST","IWB","HRL","DHI","IXUS",
-	"TWTR","IWR","TROW","RPRX","PARAP","HAL",
-	"WY","NOK","ENPH","NDAQ","AME","AMP",
-
-	"BBVA","LVS","KEYS","EEM","SCHF","XPEV",
-	"FNV","PCG","K","OKE","SLMBP","CBRE",
-	"ERIC","SIRI","GJH","APTV","DTE","GWW",
-	"SIVB","EBAY","VV","EIX","CSGP","CAJ",
-	"EXR","ARE","IVE","RCI","FERG","SQM",
-	"SOJD","ROK","SNAP","FITB","CHD","ALB",
-
-	"ON","EFX","STT","LUV","LEN","CCEP",
-	"RBLX","IBKR","AEE","ETR","CLR","IEF",
-	"GFS","LH","BLL","FTS","CHNGU","DRE",
-	"QRTEP","VBR","MKC","DGRO","TSCO","WST",
-	"TTD","WTW","VT","GMAB","BALL","ZBH",
-	"FMX","ZS","INVH","MBB","CDW","ESGU",
-
-	"FE","HIG","ZTO","CTRA","IGSB","DVY",
-	"SHV","PSNY","BIL","TLT","STE","TTM",
-	"ANSS","VTR","SDY","CQP","WAT","EC",
-	"VCSH","MAA","NTRS","PPL","AEM","DAL",
-	"SUI","MDB","UGIC","IX","MTCH","VMC",
-	"GFLU","JPST","GRMN","FTV","ALGN","MLM",
-
-	"ULTA","YUMC","SCHB","PBA","RJF","PLTR",
-	"GPC","FANG","CEG","GIB","ARGX","SPOT",
-	"QUAL","IT","CMS","VRSN","TTWO","BEKE",
-	"LBRKD","HZNP","CTLT","CINF","LYV","EBR.B",
-	"LBRDA","MT","DUKB","CNP","FOXA","BNGE",
-	"AMCR","NU","LEN.B","PWR","PHG","HEI",
-
-	"PARAA","BYYPP","VTEB","RDOG","MPWR","URI",
-	"CHWY","GOVT","AVTR","CFG","ESS","CF",
-	"INCY","HBAN","RF","MKL","ARES","CLX",
-	"ROL","BPYPO","HOLX","ALNY","TDY","VFC",
-	"AGR","NYSE","BIP","WRB","FITBI","PKI",
-	"EPAM","DOV","EBR","IUSB","PAYC","RKT",
-
-	"JBHT","BR","FITBP","CAG","FOX","HPE",
-	"ICLR","MDY","IR","ACWI","MOH","BRO",
-	"PPD","PFG","MGA","ACGL","BPY","FLT",
-	"PARA","VAR","BMRN","MOS","UMC","SWK",
-	"EXPD","KEY","J","XLU","VCIT","STX",
-	"VHT","TW","DB","WPC","BBY","IP",
-
-	"SCHP","QSR","TCOM","DGX","CHKP","WPM",
-	"TRU","BPYPN","PODD","ATO","IEP","SWKS",
-	"NET","ZBRA","RYAAY","PFF","SYF","FITBO",
-	"UDR","TWLO","XLP","OKTA","UI","EDR",
-	"TS","WAB","CNHI","BIO","POOL","VIV",
-	"EVRG","FDS","SSNC","SPLK","VGK","SEDG",
-
-	"CPB","COO","HEI.A","MRO","HYG","KMX",
-	"LNT","CAH","ZI","EXPE","DRI","PEAK",
-	"WDC","TRMB","TER","NVR","CPT","AKAM",
-	"OWL","LKQ","SHG","NTAP","LPLA","L",
-	"ELS","SJM","BDXB","TECK","XLY","BIO.B",
-	"DPZ","CS","ACI","AES","GNRC","HWM",
-
-	"FMS","EMB","IEX","IRM","TECH","XYL",
-	"EFV","BXP","ENTG","KB","FWONK","LDOS",
-	"AVY","SSL","TRGP","TYL","JKHY","SCHG",
-	"PULS","BG","SJR","AQNA","OMC","ELAT",
-	"NLOK","WMG","TXT","HUBS","SCHA","FMC",
-	"CLS","APP","BEPC","LSXMB","HDV","CTXS",
-
-	"PKX","PKG","AQNB","BILL","CBOE","SC",
-	"VLYPP","EQT","VXF","FWONA","DOCU","GLPI",
-	"NICE","UAL","KIM","MAS","TAP","IWS",
-	"SPYV","STLD","STIP","VTRS","MGM","CHRW",
-	"PINS","ICL","WLK","AMH","LU","CE",
-	"XLI","LSXMA","PTC","HTHT","COIN","LSXMK",
-
-	"BEN","TPL","IEI","VBK","BAH","CNA",
-	"SPYG","ROKU","WTRG","SUZ","NDSN","VLYPO",
-	"SNN","U","SBNY","FVD","AFG","ABMD",
-	"EMN","TAP.A","NI","FHN","AZPN","MINT",
-	"IWN","TXF","CG","HST","GDDY","VOE",
-	"KOF","IUSV","HAS","IWP","LUMN","Y",
-
-	"NMR","APA","LBTYB","AGNCO","CSLC","CRL",
-	"AAP","AEG","SPDW","BIV","ALLY","IPG",
-	"SCI","LBTYK","KEP","RE","IUSG","FCNCA",
-	"ETSY","UTHR","ASX","BLDR","RS","CCK",
-	"LW","FICO","SWT","SNA","BZ","QGEN",
-	"AGL","FNF","DT","PATH","BSY","AGNCM",
-
-	"JHX","HSIC","RPM","REG","PHM","LBTYA",
-	"PLUG","CCL","AGNCP","OVV","GME","TQQQ",
-	"GDX","VRK","OTEX","BHVN","HRC","JEPI",
-	"RYAN","WES","WPP","QRVO","REXR","MTUM",
-	"MMP","DINO","DOX","SCZ","BIPH","IHG",
-	"IWV","ERIE","CHK","XP","GGG","HUBB",
-
-	"DTP","GL","EQH","MORN","SLV","BKI",
-	"ESLT","GG","VST","PCTY","YINN","MKTX",
-	"JAZZ","GRAB","BURL","AER","NOBL","SPLV",
-	"CMA","AAL","IGIB","BRKR","AR","BAP",
-	"MYMTO","BEP","LSI","EWJ","NLY","MPW",
-	"ZNH","ELAN","BILI","ARCC","FLOT","XLC",
-
-	"DAR","EWBC","CUK","AIZ","SPLG","OLPX",
-	"CUBE","NWS","YMM","WHR","DISH","BNDX",
-	"RDY","BJ","ZEN","LAMR","JNPR","SKM",
-	"FFIV","ACC","ACM","VLUE","AQN","RGEN",
-	"HGH","NRG","SCHO","FNDX","WSO","SUB",
-	"WSM","AOS","LOGI","XEC","JLL","WSO.B",
-
-	"SCHM","VVX","GFL","LEGN","WOLF","ALLE",
-	"CCJ","MTN","RCL","HII","ZG","VFH",
-	"Z","HNP","RHI","NLSN","UGI","OGN",
-	"COLD","COR","CIG.C","BWA","SWCH","SEE",
-	"SCHE","PAG","LNC","BCH","EXAS","MCHI",
-	"H","FBHS","NFE","IBB","NYMTM","TTC",
-
-	"MHK","DBX","GFI","AMC","CABO","DOCS",
-	"LAD","RDVY","PNW","IJS","G","GTLB",
-	"EFG","CBSH","DVA","WMS","TFII","OC",
-	"CLF","KNX","NWL","VOT","TPR","RGA",
-	"TRT","FRT","PDBC","MAT","ARMK","LEA",
-	"AA","ONBPP","SPYD","TEVA","FTCS","LII",
-
-	"NNN","WAL","CAE","OGE","WBS","TPG",
-	"DLO","CZR","FND","NYMTL","XM","PNR",
-	"ZION","ARKK","UHS","XBI","USFR","CGNX",
-	"NVCR","PSTG","ONBPO","CFR","CHE","RRX",
-	"XRAY","OEF","SCHZ","PFGC","STOR","TME",
-	"CDAY","CHDN","ARW","CAR","TOST","WFG",
-
-		
-	"SPSB","GLOB","HESM","RBA","AVLR","HOOD",
-	"CHNG","SEIC","MASI","FSLR","MANH","DLB",
-	"ACGLN","NYMTZ","TTEK","PPC","TIXI","IVZ",
-	"SYNH","CASY","GGB","GRFS","ATCOL","JBL",
-	"GUNR","SCHR","CEA","LECO","OLN","CMSA",
-	"SBSW","USFD","WSC","DECK","WEX","CFLT",
-
-	"AIRC","EGP","SREA","MRVI","SWAV","PAC",
-	"PAA","CIEN","AGCO","FNDF","OHI","FUTU",
-	"HTZ","CWEN","SRPT","CMSD","BERY","RGLD",
-	"IOT","QDEL","CMSC","CIB","DKS","HALO",
-	"VDE","MIDD","BSAC","YNDX","ORI","NXST",
-	"MGK","IDEV","CACC","EXEL","IJJ","IAC",
-
-	"PSO","KT","ICSH","LEVI","USHY","AN",
-	"TX","CACI","USIG","UNM","S","GNTX",
-	"KBR","FLEX","ALV","FIVE","STWD","ATR",
-	"ESTC","ACHC","DXC","RRC","AXON","JEF",
-	"PSB","LSCC","BEAV","HTA","PII","VONG",
-	"PLNT","SWN","QTS","RL","CNXC","IHI",
-
-		
-	"FR","RNR","IYW","RH","FIVN","PHI",
-	"VIPS","TDOC","BBJP","TREX","FPE","BSMX",
-	"CWEN.A","VDC","KWEB","VOOG","PRTC","MUSA",
-	"AFRM","GPK","ESGD","WU","COTY","ST",
-	"PB","HCP","WYNN","FCN","SPAB","JNK",
-	"SOXX","WF","IJK","NEP","DNB","PCOR",
-
-	"KRC","CHH","BRX","NVST","HUB","BBWI",
-	"ACH","DGRW","CRSP","DCP","CPRI","FYBR",
-	"USG","VOYA","GWRE","AU","ADT","RCM",
-	"VNO","WH","XLB","SPTL","UWMC","AGNC",
-	"COWZ","NFG","DCI","SAIL","BROS","NOV",
-	"BBCA","SPIB","FSK","FAF","SCHH","HRB",
-	
-	"CASN","LFUS","SF","VONV","MSP","BPOP",
-	"BLCO","BLD","THC","FLO","GMED","REYN",
-	"EFAV","INGR","INFA","FSV","FFIN","SWX",
-	"GTLS","SSB","CX","ROLL","AMLP","EEMV",
-	"ISTB","XPO","PRGO","PRF","SON","SGMS",
-	"ESGV","CCCS","VPU","SHLX","AZTA","FXI",
-
-	"WWD","SOFI","ASR","ITT","CIG","SKX",
-	"ADC","MKSI","PGX","TOL","SITE","MDLA",
-	"BYD","CELH","NVAX","SPTI","SRC","SAIA",
-	"ONON","MDU","PNFP","ASH","LSTR","TXG",
-	"STAG","FTSM","OSH","TXRH","HLI","GBCI",
-	"WCC","BC","LITE","RYN","MSPR","W",
-
-	"PDCE","COKE","INSP","VLY","CNM","SBS",
-	"IDA","ZIM","FIG","DNA","DSGX","OSK",
-	"RUN","MTZ","JSM","SHC","ALK","OPCH",
-	"SNV","VVV","SIGI","SPEM","CYBR","IONS",
-	"PLTK","GDS","SPTM","RLI","AYI","XLRE",
-	"JIRE","MP","MTDR","LMBS","TENB","EME",
-
-	"FNDA","FTEC","VPL","THG","MNDT","ITCI",
-	"NVT","APLS","DOOO","AXTA","SAIC","POST",
-	"KNSL","BOKF","ALKS","TSEM","CR","OLED",
-	"CW","TMX","VTWO","ASND","BWXT","CIBR",
-	"BFAM","ZWS","UNMA","BAK","IIVI","GIL",
-	"CIGI","AMN","ORCC","OMCL","HYQ","DKNG",
-
-	"BBEU","LEG","CC","TNET","VAC","PENN",
-	"GH","HOG","EEFT","LHCG","DQ","NYT",
-	"SHM","STN","VG","GLDM","IRDM","ROG",
-	"MEDP","OMF","NCLH","RNG","WTFC","MSA",
-	"IPGP","DAVA","QLYS","ICLN","EHC","WB",
-	"MTCN","TRQ","SAFM","NTLA","UBSI","IJT",
-
-	"PEN","BIPC","GXO","BXMT","WWE","CLDR",
-	"LPX","NTRSO","EXLS","TWKS","EZU","VMI",
-	"EXPO","PRI","ASGN","AXS","SYNA","ARIA",
-	"COLM","CBPO","CLH","IRT","EWZ","BKH",
-	"DTM","SPMD","DRVN","RARE","KNTK","SMH",
-	"SHYG","IGV","MBT","SLAB","X","M",
-
-	"HXL","DTW","FIZZ","LNTH","PYCR","AUY",
-	"SSD","OZK","NSA","MNDY","SMG","SIM",
-	"MQ","EQY","STVN","IWY","ONB","NEAR",
-	"AMG","COUP","HGV","NAV","IAA","HOMB",
-	"UFPI","NRZ","GPT","TV","SLGN","ESI",
-	"HE","NVEI","THO","LYFT","ARWR","BMBL",
-
-	"PINC","ATHM","TGNA","EXP","IART","ACWV",
-	"SEB","POR","NYCB","ORA","OLLI","AM",
-	"OGS","MUR","CADE","ZIONL","EWT","EVO",
-	"TRNO","SFBS","IDV","MGV","NOVT","ESGE",
-	"AVT","IYR","POWI","UMBF","KGC","FIBK",
-	"CUZ","CVNA","LIT","SLM","DHCNL","XOP",
-
-	"LBRDP","GO","WEN","ESNT","NJR","LNW",
-	"PSN","FNDE","FTGC","RHP","VNOM","SJI",
-	"VNE","FDN","BL","MSM","HP","MAN",
-	"WTS","SNDR","NATI","AB","TPX","ATC",
-	"PNM","LPL","CIVI","DNLI","BCPC","EVR",
-	"CMC","NCR","MTG","VGLT","VIR","ENSG",
-
-	"QS","UNVR","SMAR","CHPT","ATUS","DBEF",
-	"BRZE","AVAL","CRUS","INDA","SRCL","PSTH",
-	"ARKG","TRK","RPD","AMKR","PECO","VMBS",
-	"WOOF","ENLC","AQUA","IRTC","SPSM","UAA",
-	"AMED","CERE","ALTR","WE","YETI","GPR.U",
-	"DOC","DOCN","DEI","ICUI","MANT","TDC",
-
-	"STRZB","ACWX","DHCNI","BXSL","SM","KRTX",
-	"ACAS","KRG","BKLN","EVA","FNB","BBAX",
-	"PEGA","PAAS","NSP","SPHD","ALIT","ZIONO",
-	"HWC","JHG","ELY","VCR","SAM","PVH",
-	"CYTK","BNL","DNP","HR","DH","VYMI",
-	"SPSC","CWST","HBI","CWB","BECN","ALGM",
-
-	"VIRT","CPG","MMS","HGTY","ASAI","DUOL",
-	"CWEB","BOX","INDB","TPTX","GLBE","NARI",
-	"FRSH","LTHM","NEA","SGOV","KSS","IQLT",
-	"AL","ITA","UMPQ","ZD","FOXF","FLS",
-	"NTRA","ATKR","WIX","SLYV","DV","ZLAB",
-	"CBT","EWC","TFSL","AY","NTCO","ONEQ",
-
-	"ABG","ALSN","SGFY","IAGG","SR","R",
-	"WTM","DBC","CHX","FIXD","WNS","ACT",
-	"IEUR","EDU","EWU","BEAM","AWI","CERT",
-	"APG","HIW","VNQI","MSGS","HYLB","HLNE",
-	"EPR","SMPL","AVNT","MRCY","IGT","IXJ",
-	"GLPG","VTIP","AIT","VIGI","APPN","NEWR",
-
-	"RDN","BLV","UA","VNT","VNT","PAVE",
-	"AGO","LANC","PRVA","DSI","CEF","STAA",
-	"IGM","DORM","NCNO","AMBP","TNDM","DDS",
-	"FTSL","HEFA","PAGS","IMPPP","PPS","ESGR",
-	"APLE","OXLCP","RRR","SKYY","VSS","ASAN",
-	"SSRM","CVBF","JBT","STRZA","TRTN","SID",
-
-	"KEX","ELP","CWK","AAXJ","HHC","WBT",
-	"JMST","TFI","CBU","FELE","TNL","IOO",
-	"NYMTN","BTG","OXLCO","MCW","PBF","MRTX",
-	"IGF","HAE","FLR","UNF","AEL","PRV",
-	"SPHQ","SPR","SXT","SMTC","SJNK","DLN",
-	"SEM","FULTP","SBRA","NNI","NTNX","WK",
-
-	"ALE", "AYX", "CROX", "NOMD", "IQ", "JWN",
-	"OPEN", "LAZ", "UCBI", "BPMC", "DBRG", "VRT",
-	"VIS", "WD", "PS", "LIVN", "ALRM", "SUSA",
-	"SPTS", "PK", "HELE", "GATX", "BB", "JBGS",
-	"ABCL", "APPF", "MTSI", "ASO", "ONTO", "ABCM",
-	"GNR", "BOND", "GOLF", "BRBR", "FLRN", "KMPR",
-
-	"SPT","HRMY","CNS","FCFS","SQSP","SRLN",
-	"SPB","EBC","AJRD","JKS","IXN","MPLN",
-	"INST","FUL","HAYW","SCHC","BHC","CNX",
-	"GDXJ","ROIV","HYD","ANGL","VRNS","BSCO",
-	"AVUV","FOLD","PCH","VET","CNR","SKY",
-	"TMHC","PRFT","TAC","YOU","PTON","PACW",
-
-	"PTCT", "BE", "JAMF", "EQC", "KFY", "NWE",
-	"ZIONP", "IIPR", "BHF", "SUSL", "ACIW", "JOBY",
-	"GTES", "XELAP", "SITM", "GT", "CVI", "BRFS",
-	"CRI", "ISIL", "NEU", "SEAS", "MGV", "VC",
-	"AVA", "BANF", "GPS", "GFNCP", "SUN", "TTEC",
-	"LXP", "FN", "FIX", "KRE", "VIAV", "PZZA",
-
-	"GEF.B", "CRC", "NSIT", "GEF", "DEN", "AWR",
-	"ARNC", "LCII", "SLG", "NAD", "POWWP", "MTH",
-	"BOH", "USSG", "MAIN", "MLI", "CATY", "VAL",
-	"CWT", "MATX", "FRHC", "RUSHB", "PACWP", "OFC",
-	"RLX", "BTU", "RTLPO", "MMSI", "FDL", "NVG",
-	"AAON", "XT", "ATCO", "IBTX", "REZI", "CWAN",
-
-	"ENOV", "TWNK", "SFM", "CVET", "RTLPP", "DON",
-	"PBH", "ERF", "BRP", "EMLC", "PHB", "IHS",
-	"APAM", "AXNX", "EPRT", "QLD", "DIOD", "BLKB",
-	"REET", "FATE", "BKU", "PDCO", "ANDT", "ROLLP",
-	"SSO", "FHI", "CVLT", "MC", "SIMO", "EWY",
-	"ABM", "ASHR", "PPBI", "IYH", "SVXY", "LESL",
-
-	"PTEN", "LSPD", "FHLC", "SPIP", "PSEC", "KNBE",
-	"VOOV", "COOP", "ABCB", "SQQQ", "HI", "TBIO",
-	"TCN", "VNLA", "SPWR", "SUM", "QTEC", "BSM",
-	"STEP", "VSGX", "CCOI", "PHYS", "DY", "ENV",
-	"FALN", "ATI", "ETRN", "UFS", "NHI", "LOPE",
-	"CORT", "AGI", "AEIS", "MMYT", "CRK", "UPWK",
-
-	"MGC", "AZEK", "SH", "OTTR", "HCXY", "MGEE",
-	"VCRA", "WHD", "FOCS", "TCBI", "FORM", "CVT",
-	"GHC", "LAC", "INSM", "GBIL", "CNMD", "PNGY",
-	"SFNC", "OUT", "RUSHA", "SHLS", "ESMT", "VRNT",
-	"ASB", "CXM", "VOT", "FSR", "BCO", "EVH",
-	"HRI", "FTI", "RNW", "UCBIO", "CARG", "PJT",
-
-	"IBP", "VSH", "GPI", "AGTI", "JBLU", "STNE",
-	"KBH", "BHFAL", "TAL", "WING", "CPA", "FTCH",
-	"SGRY", "IFS", "SAVE", "FPB", "BBIN", "CANO",
-	"MEOH", "SLQD", "KW", "CD", "JJSF", "SITC",
-	"PFSI", "FOUR", "SHOO", "AHCO", "VONE", "ARVN",
-	"GSIE", "ALHC", "COMT", "HASI", "WERN", "WLY",
-
-	"TRUP", "MTOR", "CALM", "COMT", "MXL", "EVTC",
-	"GDRX", "WSFS", "WLYB", "PWSC", "NVMI", "AUB",
-	"LTH", "CRVL", "GBTG", "CALX", "JETS", "NUVA",
-	"MDC", "ARLP", "PCRX", "IBOC", "WBMD", "ACAD",
-	"BDC", "ARCH", "ZGN", "MCY", "FV", "VRRM",
-	"SANM", "MOG.A", "SIG", "USM", "AIN", "TRIP",
-		
-	"ICF", "CVAC", "NFRA", "IYE", "KWR", "AMBA",
-	"ESAB", "NGVT", "HUBG", "SONO", "UGP", "NEOG",
-	"KLIC", "ABR", "THS", "SGOL", "SBLKZ", "BCC",
-	"TROX", "XSOE", "OIH", "TR", "HOME", "EXG",
-	"CLBK", "ULCC", "FWRD", "OZON", "SPXC", "TAN",
-	"HTIA", "SAFE", "VAW", "EMLP", "UTF", "TIGO",
-		
-	"MLCO", "OMI", "FUN", "CUB", "KOS", "CENT",
-	"FL", "NTCT", "CMTG", "ENS", "HPK", "GVI",
-	"EURN", "CEQP", "FNDC", "GCP", "QYLD", "OMAB",
-	"FULT", "WEBR", "VSCO", "RMBS", "CWEI", "VICR",
-	"DNUT", "CHGG", "GBDC", "DFAU", "PEB", "EYE",
-	"AMRC", "WDFC", "NOVA", "JOE", "JHMM", "HCM",
-
-	"PD", "GSY", "BMI", "LGIH", "ARKW", "AAT",
-	"GKOS", "UNFI", "AUR", "TWST", "GLNG", "FLYW",
-	"OZKAP", "FRPT", "COLB", "LOCK", "SBLK", "AIMC",
-	"TKC", "FBND", "EMXC", "GBT", "IS", "IPAR",
-	"OTLY", "UPST", "IOSP", "PGY", "SRAD", "TOTL",
-	"ETWO", "ITGR", "AMJ", "HLF", "BRC", "CENTA",
-
-	"PFHC", "BUR", "COUR", "SMR", "INMD", "DGS",
-	"SDGR", "KEN", "HWCPL", "GSAT", "CPK", "KD",
-	"UNIT", "SCL", "CPE", "MGPI", "AFGB", "AMR",
-	"XRX", "FTAIN", "RPG", "QTWO", "LBRT", "FCPT",
-	"NKLA", "SWC", "HPP", "WOR", "FROG", "EE",
-	"MSTR", "ACA", "AX", "MNSO", "TLND", "PLXS",
-
-	"AVUS", "QFIN", "JXN", "CIM", "EPP", "SGHC",
-	"FTAIP", "FSS", "OAS", "LFST", "CYXT", "NAVI",
-	"NAPA", "FRME", "PBUS", "PBUS", "CSQ", "NUS",
-	"EQRX", "FTDR", "PRMW", "SSTK", "TDTT", "HTH",
-	"ROIC", "INNO", "AFGD", "SMCI", "KAI", "FISK",
-	"LAZR", "MLKN", "STR", "UTG", "RLAY", "DAN",
-
-	"CBZ", "KBE", "SAGE", "SHO", "BCRX", "DADA",
-	"CCU", "FTAIO", "ALGT", "CRGY", "SABR", "DSEY",
-	"DKL", "CNO", "EVOP", "EXPI", "ITRI", "WIRE",
-	"WMK", "AI", "ICVT", "RVLV", "AMEH", "ATSG",
-	"IBA", "URTH", "XENE", "MAC", "THRM", "SBCF",
-	"MOAT", "DXJ", "OLK", "HAIN", "BFH", "HL",
-
-	"BOOT", "GOGL", "BLDP", "HLIO", "MED", "AFGC",
-	"CBRL", "SCHK", "PAX", "CIXX", "RCUS", "PZA",
-	"ENR", "PSMT", "AEO", "MTX", "CEM", "SLYG",
-	"OMFL", "MD", "HEP", "PRFZ", "USRT", "PAGP",
-	"WAFD", "ATRC", "VSAT", "NEX", "TEX", "ESBA",
-	"CDC", "ANGI", "BANR", "CVCO", "TOWN", "GNW",
-
-	"KRO", "GMS", "OI", "PTLC", "PRK", "FMB",
-	"CWH", "BYND", "XLG", "YELP", "EBND", "AVAV",
-	"KTB", "LZ", "PIPR", "UPRO", "ASZ.U", "TPH",
-	"ASZ", "FTAI", "IMCR", "PRGS", "GSHD", "DCT",
-	"PNFPP", "KMT", "AUBAP", "TSP", "FBC", "BHFAO",
-	"ONEM", "UUP", "IOVA", "SKIN", "SI", "ZIP",
-
-	"RYT", "AOR", "EPC", "HMY", "IXC", "IDCC",
-	"SJW", "RAMP", "KAR", "WSBC", "CSIQ", "OPK",
-	"YY", "IYF", "RQI", "NUV", "FBK", "BOWL",
-	"LAUR", "RIG", "DOOR", "CSTM", "NMRK", "EVCM",
-	"XME", "BHFAP", "GOOS", "NZF", "MAXR", "ARCB",
-	"SPXL", "GDV", "TRMK", "NSS", "VCLT", "TFLO",
-
-	"FFBC", "IRWD", "VGSH", "RKLB", "QCLN", "FA",
-	"CNK", "TTGT", "CTRE", "XNCR", "RLJ", "SOLN",
-	"DVAX", "MGRC", "TRN", "UE", "CSGS", "LGF.A",
-	"FRO", "VCYT", "COMP", "MWA", "ADX", "KRYS",
-	"OGCP", "RTLR", "VRP", "OR", "ETY", "SYBT",
-	"WRE", "STNG", "EVT", "IVT", "BAB", "TLN",
-
-	"NVEE", "AFGE", "SIX", "TASK", "CEIX", "NOG",
-	"SPCE", "BRCC", "AG", "NWN", "TEO", "ARKQ",
-	"NAC", "URBN", "IBRX", "BIGZ", "SHI", "EAF",
-	"FUTY", "DRH", "TDS", "IBDO", "CMF", "HTLF",
-	"CGAU", "FORG", "SASR", "DEM", "AMPH", "FLGT",
-	"GSG", "FLNC", "GAB", "SWI", "NUTX", "KBWB",
-
-	"MANU", "ACLS", "XYLD", "XHR", "ICFI", "FFIE",
-	"DEA", "PGRE", "ITM", "GOGO", "ITCB", "ESE",
-	"BMEZ", "RWR", "SHAK", "RZB", "IFRA", "EWA",
-	"KAHC.U", "DES", "LKFN", "BRDG", "AAWW", "IBDP",
-	"CYRX", "NXE", "IMKTA", "CSWI", "LRN", "MSGE",
-	"BDJ", "CVII.U", "ALVO", "SEMR", "SCPL", "KAHC",
-
-	"CVII", "GSBD", "HTGC", "FDML", "HOPE", "ARRY",
-	"OLO", "PFS", "EVEX", "BBUC", "AUPH", "IVOL",
-	"WGO", "USAC", "EVGO", "ATGE", "FAS", "RVMD",
-	"LFG", "AIA", "PRM", "ALLO", "TELL", "BCAT",
-	"NE", "TWO", "MDRX", "PI", "USA", "SJIJ",
-	"AMPL", "HYLS", "STRA", "HYMB", "FREL", "NPO",
-
-	"XMTR", "WWW", "BGS", "CNNE", "DK", "HLMN",
-	"KTOS", "AXSM", "NBTB", "ELF", "GPRE", "CRDO",
-	"VCTR", "RNST", "DFAI", "CCS", "PTVE", "AKO.B",
-	"CODI", "NVRO", "TBK", "NWBI", "LILA", "VERX",
-	"PAY", "LILAK", "SKT", "NABL", "CCXI", "KN",
-	"PCY", "TLRY", "APPS", "STER", "TDIV", "FIGS",
-
-	"VXX", "LGND", "GTN", "BTT", "POLY", "TEN",
-	"HACK", "GGP", "SNEX", "DBA", "EVRI", "PMD",
-	"VGR", "BND", "FORTY", "AKR", "TVTX", "SEAT",
-	"CDEV", "GPOR", "EBS", "SATS", "SLY", "VRTV",
-	"VBTX", "WTFCP", "SG", "NTB", "MYGN", "NS",
-	"ZNTL", "KOMP", "AIRM", "B", "STPZ", "PING",
-
-	"ETV", "HMN", "RZA", "USPH", "SUPN", "BFS",
-	"STGW", "LTC", "TCBK", "EFSC", "ENIC", "BVN",
-	"BAMR", "XPER", "CDMOP", "CTKB", "PAYO", "VZIO",
-	"PHO", "GXC", "GET", "RADI", "MSEX", "IEV",
-	"ILCG", "PRAA", "ODP", "SFB", "MOO", "WOW",
-	"IAS", "AOM", "NXRT", "WTFCM", "FCEL", "SBGI",
-
-	"RFP", "ECPG", "QDF", "PLAY", "VSTO", "ERJ",
-	"OCFCP", "IBDN", "UDMY", "EGBN", "EDE", "CWI",
-	"KRA", "JPS", "ARI", "WABC", "AVDV", "DIVO",
-	"BHFAN", "MNRO", "OSIS", "MTRN", "GTN.A", "FEZ",
-	"NG", "CHEF", "BBU", "HCC", "SES", "IHF",
-	"TIPX", "RVT", "GNL", "BLMN", "PLMR", "NMIH",
-
-	"TSE", "FXZ", "HNI", "XPEL", "CRCT", "FXN",
-	"EXFY", "PDI", "GGR", "MYRG", "MNRL", "SAH",
-	"BSTZ", "FNCL", "SANA", "AIR", "FXR", "LDUR",
-	"SGML", "IPOF.U", "MMI", "BBMC", "VIVO", "NOAH",
-	"FSLY", "CAKE", "SAFT", "IWX", "FLCB", "TSLX",
-	"RELY", "AKO.A", "IPOF", "FXH", "TARO", "FNA",
-
-	"MDYV", "GFF", "KIND", "ECAT", "FDP", "NULV",
-	"TECL", "EMBC", "BBIO", "IYY", "SWTX", "LNN",
-	"HEDJ", "PTY", "SOVO", "TY", "PRTA", "RXT",
-	"TILT", "PSQ", "IYG", "RC", "AOA", "IPAC",
-	"GDOT", "JELD", "LOB", "MLNK", "ADPT", "PX",
-	"RODM", "PRCT", "MRTN", "FLNG", "MNTK", "AVDE",
-
-	"ENVX", "BATRA", "OXM", "RXRX", "USMC", "ADUS",
-	"PCTTU", "SPNS", "PSFE", "ESML", "PLUS", "ISEE",
-	"STC", "ALG", "LYEL", "BGCP", "FINV", "EWL",
-	"DDL", "CRTO", "LADR", "ARCO", "BKE", "WBX",
-	"NG", "CHEF", "BBU", "HCC", "SES", "IHF",
-	"TDCX", "FBT", "UCTT", "BIGC", "SIVBP", "IVLU",
-
-	"PMT", "UVV", "INT", "IGLB", "JBI", "PPA",
-	"SILK", "PTNR", "BXMX", "CMRE", "MEI", "WRBY",
-	"MHLA", "IYK", "PCVX", "EWG", "FENY", "NEGG",
-	"RES", "ROCC", "BOTZ", "CXW", "VGIT", "AGIO",
-	"HNDL", "BATRK", "MNTV", "CNDA", "ECVT", "CINT",
-	"DAWN", "SLVM", "SYM", "WFRD", "ASTL", "PGF",
-
-	"HLLY", "CRS", "SBH", "IBDQ", "TGH", "ESTA",
-	"HCSG", "AVDX", "ME", "ROCK", "EXAI", "CSR",
-	"URA", "BUSE", "NAAS", "GCMG", "GVA", "FRG",
-	"USNA", "MDYG", "COMM", "AMK", "ADV", "VRTS",
-	"LAW", "VCEL", "ITB", "COHU", "ALEX", "PHX",
-	"FVRR", "FCF", "JWSM.U", "RCB", "RPAY", "RWL",
-
-	"PRA", "JWSM", "TBT", "PEY", "WAFDP", "BPYUP",
-	"TCBIP", "AVNS", "LC", "KFRC", "BHFAM", "TCBIL",
-	"YSG", "DDD", "RGNX", "KREF", "PRLB", "PHR",
-	"RYLD", "GIC", "HURN", "DSL", "VRE", "JACK",
-	"GDEV", "OFG", "PATK", "AMCX", "RTPYU", "GTY",
-	"VHI", "MCG", "CTOS", "TUYA", "LPRO", "NMFC",
-
-	"MHO", "FBNC", "UITB", "XAR", "RETA", "NGM",
-	"KNL", "MIR", "EQX", "OXSQZ", "AMLX", "OCSL",
-	"CRSR", "AAC", "RILY", "AROC", "OXSQL", "DFAE",
-	"ARQT", "CFFN", "ETG", "CLDX", "RWO", "RIGP",
-	"MYOV", "RCII", "STEM", "LMND", "INFN", "BPFH",
-	"CHCO", "PL", "AVEM", "EXTR", "UCON", "DAC",
-
-	"CLS", "SCS", "TTMI", "ESTE", "VERU", "KRNT",
-	"HOUS", "AVID", "FRGE", "SDOG", "SBSI", "MODV",
-	"SOXL", "MBUU", "AMWL", "KURA", "AGYS", "ENFN",
-	"ASTS", "MUC", "VORB", "GUSA", "CASH", "KALU",
-	"ALX", "DCOM", "ESRT", "ROBO", "KMG", "MDGL",
-	"UTZ", "YPF", "KYMR", "EVV", "HYT", "CLOV",
-
-	"SCHL", "HYDW", "SPYX", "FDVV", "NMZ", "SBNYP",
-	"ALKT", "FNKO", "STEW", "PKW", "COPX", "FBRT",
-	"SFL", "SSYS", "NXGN", "QRTEB", "ZUO", "BHLB",
-	"PAM", "KSA", "PLAB", "STAR", "IMGN", "FPF",
-	"PRO", "RSI", "TBBK", "CUBI", "MGR", "EIG",
-	"LXU", "MFA", "PACB", "FLTR", "DHS", "CNXN",
-
-	"NBHC", "XMLV", "CAMT", "TRS", "BHG", "AHH",
-	"PRIM", "OCFC", "FGEN", "SRVR", "HIMX", "HYS",
-	"CRON", "PICK", "NTUS", "SIGIP", "GDEN", "NFJ",
-	"FXO", "BBN", "MATV", "EAI", "IHDG", "TALO",
-	"DFH", "TOP", "KYN", "CDMO", "HTLD", "RGR",
-	"BANC", "LZB", "IBDM", "HRT", "SNCY", "GDYN",
-
-	"EWCZ", "JZGG", "MLPA", "CLNE", "CLM", "FIW",
-	"SRCE", "HIMS", "CMP", "RXDX", "DIN", "DRBN",
-	"VALN", "KNDY", "ATRI", "SPTN", "BV", "STBA",
-	"LPI", "APOL", "OSTK", "TCBIO", "PRPB.U", "PXF",
-	"SKYW", "FFWM", "PGTI", "SLP", "DLS", "EPAC",
-	"MGNI", "FTA", "TNC", "KXI", "NEO", "MFGP",
-		
-	"DNOW", "CRNX", "HTLFP", "MNINP", "CIICU", "BUG",
-	"PCT", "BALY", "PRPB", "ERII", "OFLX", "MTTR",
-	"BBUS", "BRG", "PSK", "VCSA", "CTS", "NHC",
-	"PLYA", "SAND", "RVNC", "HERA", "NYMT", "REGL",
-	"SNDX", "VLRS", "NRGU", "DWAC", "MAG", "CPUH.U",
-	"LRGF", "QURE", "RCKT", "MCRI", "CPUH", "ARKO",
-
-	"CQQQ", "LICY", "ENTA", "SHEN", "JCPI", "XPRO",
-	"CLBT", "SSP", "ACVA", "BBDC", "PDP", "IRBT",
-	"IYJ", "LWLG", "SLDP", "TMP", "NRGV", "FXL",
-	"EVBG", "CRHC.U", "AGM", "USO", "PAR", "GRBK",
-	"LPSN", "RNP", "TRMD", "MLAB", "AIV", "FSTA",
-	"FDIS", "ROAD", "ATEN", "MNKD", "BLU", "IVOO",
-
-	"FEX", "IHRT", "CRHC", "PTRA", "MRUS", "BTZ",
-	"ILF", "MEG", "EGO", "INTR", "DWACU", "NBR",
-	"GEM", "GABC", "DOMO", "ACRS", "IMCG", "ANDE",
-	"FPX", "BRKL", "DTD", "IBDR", "AVO", "UMH",
-	"GSM", "EELV", "EB", "PBW", "BRSP", "GLTR",
-	"AMPS", "LABU", "INVA", "PEJ", "ACEL", "PFXF",
-
-	"LMAT", "HEES", "CGC", "PFBC", "IDU", "PBFX",
-	"KRP", "TNA", "AACQU", "EAT", "SRNE", "DHT",
-	"REPL", "FLQL", "PROC", "CRNC", "CERS", "SMP",
-	"IAUM", "IGOV", "OSCR", "AZZ", "RNDT", "WISH",
-	"NTST", "CTR", "OII", "EDIT", "QQEW", "SPH",
-	"NRK", "VMEO", "SXI", "ZH", "PPLT", "MBINN",
-
-	"AMTB", "ENVA", "SVC", "RBCAA", "UAN", "HSKA",
-	"SWIR", "ECCC", "OPI", "BBRE", "KC", "DSGR",
-	"ADTN", "HTRB", "RTL", "MBIN", "AOK", "VERV",
-	"FRGAP", "GIII", "MGI", "NIC", "PSLV", "CAL",
-	"BLTE", "AUS", "ASTE", "GEL", "CFNL", "CLFD",
-	"AMRX", "MQY", "PTA", "GOODN", "CNOB", "STKL",
-
-	"MBINO", "GGAL", "AGGY", "AMSF", "QCRH", "RDWR",
-	"AVXL", "PRG", "VVX", "GES", "XHB", "MORF",
-	"OEC", "EUFN", "DFIN", "INSW", "CCSI", "DSGN",
-	"LBAI", "BAR", "CET", "ASIX", "MKTW", "SIGA",
-	"RWT", "BCI", "HOLI", "INTA", "EHAB", "IMAX",
-	"JPRE", "SUSB", "EFC", "ALLG", "XSD", "MOMO",
-
-	"OBNK", "UTL", "HLIT", "SUSC", "BPYU", "ARVL",
-	"SAVA", "GBX", "IVOG", "CONX", "UEC", "DMLP",
-	"ALEC", "CTBB", "FTXN", "CXSE", "GOEV", "ILPT",
-	"RDFN", "CCRN", "SCHN", "MODN", "MGIC", "OXLC",
-	"VECO", "NRC", "LANDO", "NUSC", "GOODM", "TMDX",
-	"PIII", "PGPG", "PUMP", "MERC", "MLPX", "ACMR",
-
-
-	"TH", "HFWA", "MYTE", "ETW", "FREY", "PARR",
-	"SCRMU", "GB", "DCPH", "BCSF", "DBI", "DLX",
-	"PFC", "SLGC", "AIC", "CNOBP", "BY", "CGW",
-	"ZETA", "SCRM", "SIVR", "SMRT", "ENTR", "IYM",
-	"PRS", "SMLF", "DCBO", "TMCI", "SA", "IWL",
-	"VIOO", "AOSL", "FNX", "COWN", "QRTEA", "BRMK",
-
-	"REZ", "TWI", "AXL", "SECT", "HQH", "SUMO",
-	"CFO", "IONQ", "IWC", "RMR", "SBR", "HCAT",
-	"SCWX", "CNDT", "QLTA", "SAAS", "BTRS", "RNA",
-	"DCFC", "RYH", "CAAP", "HBM", "DJP", "CDZIP",
-	"GAM", "SSNI", "TGLS", "HDEF", "FIVG", "FTC",
-	"TGI", "SPLP", "GPRO", "WLKP", "JRVR", "CHY",
-
-	"RPT", "BSCL", "THQ", "LANDM", "UCO", "BCOR",
-	"JBSS", "CLTL", "MRC", "FORR", "NSSC", "UIS",
-	"ANF", "SII", "PAYA", "MUNI", "PNTM", "APGB.U",
-	"CKH", "MATW", "GROV", "ARIS", "PNTM", "KIDS",
-	"UFCS", "IGMS", "ITOS", "CALF", "NNDM", "AOD",
-	"IMXI", "EDV", "APOG", "HYGV", "APGB", "LGV",
-
-	"EOS", "RYI", "AWF", "VREX", "HZO", "NPTN",
-	"SGH", "CRBN", "IGE", "WASH", "IAT", "GOODO",
-	"LQDH", "VIASP", "GTO", "CHCT", "OM", "RA",
-	"DRSK", "GAINL", "FWRG", "LEV", "QQQX", "AVPT",
-	"CLMT", "DOLE", "IIIV", "DGII", "KAMN", "PUBM",
-	"QUS", "IGR", "AGRO", "CHI", "CBD", "DRQ",
-
-	"IMAB", "HUYA", "VNET", "OCFT", "TIGR", "RENN",
-	"API", "BZUN", "CAN", "SVA", "SOHU", "YALA",
-	"RERE", "DAO", "OPRA", "NIU", "PUYI", "WDH",
-	"RGC", "EH", "GOTU", "LX", "MSC", "GHG",
-	"DOYU", "XNET", "IH", "CMCM", "SY", "BNR",
-	"UNIX", "CO", "CANG", "SOL", "GRCL", "EM",
-
-	"TWOU", "ACCD", "MARA", "KOSS", "VIRI", "FUBO",
-	"DBVT", "AMRS", "ZY", "OUST", "GTH", "ACB",
-	"SKLZ", "OGI", "VLDR", "SNDL", "NAK", "PLCE",
-	"SOHOO", "BTWN", "PTGX", "GHL", "INSE", "AHT",
-	"HDSN", "RAD", "AZUL", "JMIA", "BLUE", "SFIX",
-	"PRVB", "GRWG", "VFF", "BKKT", "CRTX", "OVID",
-
-	"SLQT", "CMRX", "RIDE", "EDSA", "ADVM", "CDXC",
-	"BYSI", "AMRN", "MDVL", "CLVR", "CNTB", "NVTA",
-	"LDI", "BLI", "BLFS", "UFPT", "BVS", "LUNG",
-	"NUVL", "ATRA", "ACLX", "CPRX", "MIRM", "YMAB",
-	"AGEN", "ERAS", "NRIX", "TGTX", "PMVP", "KNSA",
-	"MOR", "CTIC", "TIL", "ADCT", "KROS", "GERN",
-
-	"PNT", "ZEAL", "ACET", "NKTX", "COGT", "OGGO",
-	"SGMO", "CHRS", "RPTX", "VNDA", "INBX", "FHTX",
-	"CGEM", "KZR", "BCYC", "CELU", "JANX", "PAPT",
-	"OCGN", "IDYA", "STOK", "IMTX", "EGRX", "AMAB",
-	"VXRT", "GOSS", "IPSC", "KNET", "TSVT", "IMGO",
-	"IMVT", "MRSN", "PHAR", "CNTA", "CMPS", "ALT",
-
-	"ARCT", "RDUS", "KOD", "GLUE", "ALBO", "CCCC",
-	"DYN", "MCRB", "INO", "ADGI", "PTGX", "AFMD",
-	"ADMA", "ICPT", "BTAI", "LXRX", "AURA", "SRRK",
-	"ALXO", "HLVX", "CRBU", "TYRA", "TNGX", "GBIO",
-	"FMTX", "MDXG", "KPTI", "AKRO", "VERA", "ABUS",
-	"AVTE", "EIGR", "MGTX", "HUMA", "MESO", "VRDN",
-
-	"CLVS", "BMEA", "TRDA", "RYTM", "PGEN", "ANIK",
-	"ZYME", "SLN", "ICVX", "XOMA", "HRTX", "ALVR",
-	"ALDX", "TCRT", "KALV", "XOMAP", "GRNA", "XOMAO",
-	"STRO", "ADAP", "CMPX", "GTHX", "OPT", "LCTX",
-	"VKTX", "AUTL", "AADI", "FDMT", "ALPN", "VECT",
-	"SELB", "VYGR", "KRON", "RLYB", "OTLK", "LIAN",
-
-	"GEO", "MVST", "PBI", "BBBY", "MNMD", "EXPR",
-	"NGMS", "CNTY", "INSE", "GMBLP", "AGS", "FLL",
-	"CDRO", "GAN", "CPHC", "BRAG", "TBP", "XXII",
-	"FSM", "EXK", "SVM", "NEWP", "GATO", "HLX",
-	"MVIS", "WKHS", "KNDI", "CENN", "SEV", "BIRD",
-	"CBD", "CENX", "AVD", "IPI", "NVX", "MASS",
-
-	"MX", "HA", "GOL", "UP", "BLDE", "NWLI",
-	"CIA", "NSTG", "MXCT", "AKYA", "BNGO", "QSI",
-	"NAUT", "OMIC", "ABSI", "NOTV", "TKNO", "SNCE",
-	"PRID", "PSNL", "CGEN", "HBIO", "ISO", "LAB",
-	"CDXC", "CSBR", "IPA", "COCO", "ZVIA", "SKYH",
-	"CLW", "GLT", "ITP", "PACK", "PTSI", "SWVL",
-
-};
+char StockNameList[5000][64];
 //char StockNameList[][64] =
 //{
 //	"BLUE"
@@ -1506,8 +648,12 @@ bool   bReqSuc[20][6000];
 //};
 char OptionDataList[][32] =
 {
-	"20220819",
-	"20230120",
+	//"20220819",
+	//"20220916",
+	//"20221021",
+	//"20230120",
+	//"20230530",
+	//"20230616",
 	"20240119"
 };
 time_t convert(int year, int month, int day)
@@ -1571,12 +717,188 @@ void WriteRateToFile(int mIndex,int nStockIndex,double price)
 	sprintf_s(pszFileName, 256, "C:\\bighouse\\波动率探索器\\利率\\%s\\%s_%s.txt", OptionDataList[mIndex], OptionDataList[mIndex], pszInitDate);
 	gamelog::WriteLog(pszFileName, pszWrite);
 }
+std::vector<std::string> symList;
+HANDLE hPriceFile;
+DWORD WINAPI GetMktDataThread(LPVOID lpParam)
+{
+	TestCppClient *pp = (TestCppClient *)lpParam;
+	FILE *fp;
+
+	hPriceFile = CreateFile("C:\\bighouse\\symPrice.txt", GENERIC_READ | GENERIC_WRITE,
+		FILE_SHARE_READ, 0, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
+	if (hPriceFile == INVALID_HANDLE_VALUE)
+		return 0;
+
+	int nRet = fopen_s(&fp, "C:\\bighouse\\SharesA.txt", "r");
+	if (nRet != NULL)
+		return 0;
+	char pszTemp[1024] = "";
+	char pszTick[1024] = "";
+	for (;;)
+	{
+		memset(pszTick, 0x00, sizeof(pszTick));
+		if (fgets(pszTemp, 1024, fp) == NULL)
+			break;
+		char *pp=strchr(pszTemp, '|');
+		memcpy(pszTick, pszTemp, pp - pszTemp);
+		//pszTemp[strlen(pszTemp) - 1] = 0x00;
+		symList.push_back(pszTick);
+		//printf("%s\n", pszTemp);
+	}
+	int nMktId;
+	int nEachSelect = 36;
+	int nStockCount = symList.size();
+	for (int k = 0; k < nStockCount; k++)
+	{
+		nMktId = k;
+		pp->m_pClient->reqMktData(nMktId, ContractSamples::StockForQuery((char *)symList[k].data()), "", false, false, TagValueListSPtr());
+		if ((k + 1) % nEachSelect == 0)
+		{
+			std::this_thread::sleep_for(std::chrono::seconds(10));
+			for (int j = nMktId; j > nMktId - nEachSelect; j--)
+			{
+				pp->m_pClient->cancelMktData(j);
+			}
+		}
+	}
+	if (nStockCount%nEachSelect != 0)
+	{
+		std::this_thread::sleep_for(std::chrono::seconds(10));
+		for (int k = nMktId; k > nMktId - (nStockCount%nEachSelect); k--)
+		{
+			pp->m_pClient->cancelMktData(k);
+		}
+
+	}
+	return 0;
+}
+
+int GetDataOptionList(char *pszData)
+{
+	WIN32_FIND_DATA ffd;
+	HANDLE hFind;
+	int nStockCount = 0;
+	char pszFind[MAX_PATH];
+
+	memset(StockNameList, 0x00, sizeof(StockNameList));
+	sprintf_s(pszFind, MAX_PATH, "C:\\bighouse\\波动率探索器\\%s\\*", pszData);
+	hFind = FindFirstFile(pszFind, &ffd);
+
+	if (INVALID_HANDLE_VALUE == hFind)
+	{
+		return nStockCount;
+	}
+
+	// List all the files in the directory with some info about them.
+
+	do
+	{
+		if (ffd.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY)
+		{
+			//printf(TEXT("  %s   <DIR>\n"), ffd.cFileName);
+		}
+		else
+		{
+			char pszTemp[256] = "";
+			if (strstr(ffd.cFileName, ".txt") != NULL && strstr(ffd.cFileName, "索引") == NULL)
+			{
+				memcpy(pszTemp, ffd.cFileName, strlen(ffd.cFileName) - 4);
+				memcpy(StockNameList[nStockCount], pszTemp, strlen(pszTemp));
+				//printf("%s\n", pszTemp);
+				nStockCount++;
+			}
+		}
+	} while (FindNextFile(hFind, &ffd) != 0);
+	FindClose(hFind);
+	return nStockCount;
+}
+std::vector<std::string> syNasdaq100List;
+DWORD WINAPI GetNasdaq100ReportSnapshot(LPVOID lpParam)
+{
+	TestCppClient *pp = (TestCppClient *)lpParam;
+
+	//std::vector<std::string> syNameList;
+	FILE *fp;
+	int nRet = fopen_s(&fp, "C:\\bighouse\\NASDAQ-100.txt", "r");
+	if (nRet != NULL)
+		return 0;
+	char pszTick[1024] = "";
+	for (;;)
+	{
+		memset(pszTick, 0x00, sizeof(pszTick));
+		if (fgets(pszTick, 1024, fp) == NULL)
+			break;
+		pszTick[strlen(pszTick) - 1] = 0x00;
+		syNasdaq100List.push_back(pszTick);
+		//printf("%s\n", pszTemp);
+	}
+	fclose(fp);
+	int nStockCount = syNasdaq100List.size();
+	int nMktId;
+	int nEachSelect = 15;
+	char pszDir[MAX_PATH];
+	SYSTEMTIME currentTime = { 0 };
+	GetLocalTime(&currentTime);
+	char pszInitDate[32] = "";
+	sprintf_s(pszInitDate, 32, "%04d%02d%02d", currentTime.wYear, currentTime.wMonth, currentTime.wDay);
+
+	sprintf_s(pszDir, 256, "C:\\bighouse\\财务数据\\快照\\%s", pszInitDate);
+	CreateDirectory(pszDir, NULL);
+	for (int k = 0; k < nStockCount; k++)
+	{
+		nMktId = k;
+		pp->m_pClient->reqFundamentalData(nMktId, ContractSamples::StockForQueryNASDAQ((char *)syNasdaq100List[k].data()), "ReportSnapshot", TagValueListSPtr());
+		
+		if ((k + 1) % nEachSelect == 0)
+		{
+			std::this_thread::sleep_for(std::chrono::seconds(10));
+			for (int j = nMktId; j > nMktId - nEachSelect; j--)
+			{
+				pp->m_pClient->cancelFundamentalData(j);
+			}
+		}
+	}
+	/*sprintf_s(pszDir, 256, "C:\\bighouse\\财务数据\\ReportsFinSummary\\%s", pszInitDate);
+	CreateDirectory(pszDir, NULL);
+	for (int k = 0; k < nStockCount; k++)
+	{
+		nMktId = k+10000;
+		pp->m_pClient->reqFundamentalData(nMktId, ContractSamples::StockForQueryNASDAQ((char *)syNasdaq100List[k].data()), "ReportsFinSummary", TagValueListSPtr());
+		
+		if ((k + 1) % nEachSelect == 0)
+		{
+			std::this_thread::sleep_for(std::chrono::seconds(10));
+			for (int j = nMktId; j > nMktId - nEachSelect; j--)
+			{
+				pp->m_pClient->cancelFundamentalData(j);
+			}
+		}
+	}*/
+
+	/*sprintf_s(pszDir, 256, "C:\\bighouse\\财务数据\\ReportsFinStatements\\%s", pszInitDate);
+	CreateDirectory(pszDir, NULL);
+	for (int k = 0; k < nStockCount; k++)
+	{
+		nMktId = k + 20000;
+		pp->m_pClient->reqFundamentalData(nMktId, ContractSamples::StockForQueryNASDAQ((char *)syNasdaq100List[k].data()), "ReportsFinStatements", TagValueListSPtr());
+
+		if ((k + 1) % nEachSelect == 0)
+		{
+			std::this_thread::sleep_for(std::chrono::seconds(10));
+			for (int j = nMktId; j > nMktId - nEachSelect; j--)
+			{
+				pp->m_pClient->cancelFundamentalData(j);
+			}
+		}
+	}*/
+	//m_pClient->reqFundamentalData(8001, ContractSamples::USStock(), "ReportSnapshot", TagValueListSPtr());
+}
 DWORD WINAPI RepDataThread(LPVOID lpParam)
 {
 	TestCppClient *pp = (TestCppClient *)lpParam;
 	char pszFileName[256];
-	
-
+	/*pp->m_pClient->reqMktData(200, ContractSamples::StockForQuery((char *)"Canaan Inc"), "", false, false, TagValueListSPtr());
+	return 1;*/
 	char pszDir[MAX_PATH];
 	sprintf_s(pszDir, 256, "C:\\bighouse\\波动率探索器\\利率");
 	CreateDirectory(pszDir, NULL);
@@ -1596,8 +918,8 @@ DWORD WINAPI RepDataThread(LPVOID lpParam)
 		sprintf_s(pszDir, 256, "C:\\bighouse\\波动率探索器\\利率\\%s", OptionDataList[m]);
 		CreateDirectory(pszDir, NULL);
 		//int nStockCount = GetStockCount(m);
-		int nStockCount = (std::min)((int)(sizeof(StockNameList) / 64), GetStockCount(m));
-		
+		//int nStockCount = (std::min)((int)(sizeof(StockNameList) / 64), GetStockCount(m));
+		int nStockCount = GetDataOptionList(OptionDataList[m]);
 		for (int k = 0; k < nStockCount; k++)
 		{
 			bFalg[m][k] = false;
@@ -1693,7 +1015,24 @@ DWORD WINAPI GetOptionStrikeListThread(LPVOID lpParam)
 	StListInfo *pInfo = (StListInfo *)lpParam;
 	TestCppClient *pp = pInfo->pp;
 	int nDataCount = sizeof(OptionDataList) / 32;
-	int nStockCount = sizeof(StockNameList) / 64;
+
+	std::vector<std::string> syNameList;
+	FILE *fp;
+	int nRet = fopen_s(&fp, "C:\\bighouse\\US-Stock-Symbols\\all\\all_tickers.txt", "r");
+	if (nRet != NULL)
+		return 0;
+	char pszTick[1024] = "";
+	for (;;)
+	{
+		memset(pszTick, 0x00, sizeof(pszTick));
+		if (fgets(pszTick, 1024, fp) == NULL)
+			break;
+		pszTick[strlen(pszTick) - 1] = 0x00;
+		syNameList.push_back(pszTick);
+		//printf("%s\n", pszTemp);
+	}
+	fclose(fp);
+	int nStockCount = syNameList.size();
 	//先创建目录
 	int m = pInfo->mIndex;
 	int mIndexList[20];
@@ -1710,11 +1049,8 @@ DWORD WINAPI GetOptionStrikeListThread(LPVOID lpParam)
 	for (int k = mIndexList[m]; k < nStockCount; k++)
 	{
 			//如果没有找到这股票，返回200错误代码,
-			char pszFileName[256];
-			sprintf_s(pszFileName, 256, "C:\\bighouse\\波动率探索器\\%s\\%s.txt", OptionDataList[m], StockNameList[k]);
-			HANDLE hLog = gamelog::OpenLogFile(pszFileName, 0);
-			CloseHandle(hLog);
-			pp->m_pClient->reqContractDetails(  k+m*10000, ContractSamples::OptionForQuery(StockNameList[k], OptionDataList[m]));
+			
+			pp->m_pClient->reqContractDetails(  k+m*10000, ContractSamples::OptionForQuery((char *)syNameList[k].data(), OptionDataList[m],/*"HKD"*/"USD"));
 			if((k+1)%36==0)
 			  std::this_thread::sleep_for(std::chrono::seconds(5));
 	}
@@ -1726,7 +1062,7 @@ void TestCppClient::GetOptionStrikeList()
 {
 	DWORD ThreadID;
 	int nDataCount = sizeof(OptionDataList) / 32;
-	for (int m = 2; m < nDataCount; m++)
+	for (int m = 0; m < nDataCount; m++)
 	{
 		StListInfo *pInfo = (StListInfo *)malloc(sizeof(StListInfo));
 		pInfo->mIndex = m;
@@ -1754,12 +1090,23 @@ void TestCppClient::contractOperations()
 	GetLocalTime(&currentTime);*/
 	//return;
 
-	//GetOptionStrikeList();
-	//m_state = ST_CONTRACTOPERATION_ACK;
-	//return;
+	/*GetOptionStrikeList();
+	m_state = ST_CONTRACTOPERATION_ACK;
+	return;*/
 
-	//! [reqcontractdetails]
 	DWORD ThreadID;
+	CreateThread(NULL, 0, &GetNasdaq100ReportSnapshot, (LPVOID)this, 0, &ThreadID);
+	m_state = ST_CONTRACTOPERATION_ACK;
+	return;
+	/*m_pClient->reqContractDetails(212, ContractSamples::IBMUSStockAtSmart());
+	std::this_thread::sleep_for(std::chrono::seconds(5));
+	m_state = ST_CONTRACTOPERATION_ACK;
+	return;*/
+	//! [reqcontractdetails]
+
+	//DWORD ThreadID;
+	//CreateThread(NULL, 0, &GetMktDataThread, (LPVOID)this, 0, &ThreadID);
+//	DWORD ThreadID;
 	CreateThread(NULL, 0, &RepDataThread, (LPVOID)this, 0, &ThreadID);
 
 	char pszFileName[256];
@@ -1958,7 +1305,10 @@ void TestCppClient::fundamentals()
 {
 	/*** Requesting Fundamentals ***/
 	//! [reqfundamentaldata]
-	m_pClient->reqFundamentalData(8001, ContractSamples::USStock(), "ReportsFinSummary", TagValueListSPtr());
+	//m_pClient->reqFundamentalData(8001, ContractSamples::USStock(), "ReportsFinSummary", TagValueListSPtr());
+	m_pClient->reqFundamentalData(8001, ContractSamples::USStock(), "ReportSnapshot", TagValueListSPtr());
+	
+	//m_pClient->reqFundamentalData(8001, ContractSamples::USStock(), "ReportsFinStatements", TagValueListSPtr());
 	//! [reqfundamentaldata]
 	std::this_thread::sleep_for(std::chrono::seconds(2));
 
@@ -2426,7 +1776,7 @@ void TestCppClient::reqMatchingSymbols()
 {
 	/*** Request TWS' mathing symbols ***/
 	//! [reqmatchingsymbols]
-	m_pClient->reqMatchingSymbols(11001, "IBM");
+	m_pClient->reqMatchingSymbols(11001, "TIGR");
 	//! [reqmatchingsymbols]
 	m_state = ST_SYMBOLSAMPLES_ACK;
 }
@@ -2662,7 +2012,10 @@ void TestCppClient::nextValidId( OrderId orderId)
 {
 	printf("Next Valid Id: %ld\n", orderId);
 	m_orderId = orderId;
+	//m_state = ST_FUNDAMENTALS;
 	m_state = ST_CONTRACTOPERATION;
+
+	//m_state = ST_SYMBOLSAMPLES;
 	//m_state = ST_DELAYEDTICKDATAOPERATION;
 	//m_state = ST_OPTIONSOPERATIONS;
 	//! [nextvalidid]
@@ -2749,6 +2102,14 @@ void TestCppClient::tickPrice( TickerId tickerId, TickType field, double price, 
 	printf( "Tick Price. Ticker Id: %ld, Field: %d, Price: %g, CanAutoExecute: %d, PastLimit: %d, PreOpen: %d\n", tickerId, (int)field, price, attribs.canAutoExecute, attribs.pastLimit, attribs.preOpen);
 	if (/*field == TickType::CLOSE || field== TickType::LAST ||*/ 1)
 	{
+		if (tickerId >= 0 && tickerId < 200000 && field == TickType::CLOSE)
+		{
+			/*int nStockId = tickerId % 10000;
+			char pszWirte[512]="";
+			sprintf_s(pszWirte, 512, "%s,%g\n", symList[nStockId].data(),price);
+			DWORD dwWrite;
+			WriteFile(hPriceFile, pszWirte, strlen(pszWirte), &dwWrite, 0);*/
+		}
 		if (tickerId>=0  && tickerId < 200000 && field == TickType::LAST)
 		{
 			
@@ -3004,6 +2365,11 @@ void TestCppClient::bondContractDetails( int reqId, const ContractDetails& contr
 	printf( "BondContractDetails end. ReqId: %d\n", reqId);
 }
 //! [bondcontractdetails]
+using namespace std;
+bool FileExists(const string& filename) {
+	ifstream file(filename.c_str());
+	return file.good();
+}
 
 void TestCppClient::printContractMsg(int reqId,const Contract& contract) {
 	char pszWrite[1024];
@@ -3011,8 +2377,16 @@ void TestCppClient::printContractMsg(int reqId,const Contract& contract) {
 	sprintf_s(pszFileName,256, "C:\\bighouse\\波动率探索器\\%s\\%s.txt", contract.lastTradeDateOrContractMonth.c_str(),contract.symbol.c_str());
 	if (contract.right.at(0) == 'P')
 	{
+
+		if (!FileExists(pszFileName))
+		{
+			HANDLE hLog = gamelog::OpenLogFile(pszFileName, 0);
+			CloseHandle(hLog);
+		}
+
 		sprintf_s(pszWrite, 1024, "%g\n",contract.strike);
 		gamelog::WriteLog(pszFileName, pszWrite);
+	
 
 		sprintf_s(pszFileName, 256, "C:\\bighouse\\波动率探索器\\%s\\索引.txt", contract.lastTradeDateOrContractMonth.c_str());
 		sprintf_s(pszWrite, 1024, "%d", reqId%10000+1);
@@ -3202,7 +2576,29 @@ void TestCppClient::realtimeBar(TickerId reqId, long time, double open, double h
 
 //! [fundamentaldata]
 void TestCppClient::fundamentalData(TickerId reqId, const std::string& data) {
-	printf( "FundamentalData. ReqId: %ld, %s\n", reqId, data.c_str());
+	//printf( "FundamentalData. ReqId: %ld, %s\n", reqId, data.c_str());
+	char pszDir[MAX_PATH];
+	SYSTEMTIME currentTime = { 0 };
+	GetLocalTime(&currentTime);
+	char pszInitDate[32] = "";
+	sprintf_s(pszInitDate, 32, "%04d%02d%02d", currentTime.wYear, currentTime.wMonth, currentTime.wDay);
+	if (reqId < 10000)
+	{
+		sprintf_s(pszDir, 256, "C:\\bighouse\\财务数据\\快照\\%s\\%s.txt", pszInitDate, (char *)syNasdaq100List[reqId].data());
+		gamelog::WriteLog(pszDir, (char *)data.c_str(),0);
+	}
+	else if (reqId < 20000)
+	{
+		sprintf_s(pszDir, 256, "C:\\bighouse\\财务数据\\ReportsFinSummary\\%s\\%s.txt", pszInitDate, (char *)syNasdaq100List[reqId-10000].data());
+		gamelog::WriteLog(pszDir, (char *)data.c_str(),0);
+	}
+	else
+	{
+	    sprintf_s(pszDir, 256, "C:\\bighouse\\财务数据\\ReportsFinStatements\\%s\\%s.txt", pszInitDate, (char *)syNasdaq100List[reqId - 20000].data());
+	    gamelog::WriteLog(pszDir, (char *)data.c_str(),0);
+    }
+
+	
 }
 //! [fundamentaldata]
 
