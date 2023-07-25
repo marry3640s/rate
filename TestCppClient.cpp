@@ -813,6 +813,75 @@ int GetDataOptionList(char *pszData)
 	return nStockCount;
 }
 std::vector<std::string> syNasdaq100List;
+
+struct syminfo
+{
+	std::string name;
+	std::string exchange;
+};
+
+std::vector<syminfo> allsymList;
+DWORD WINAPI GetAllStockReportsFinStatements(LPVOID lpParam)
+{
+	TestCppClient *pp = (TestCppClient *)lpParam;
+
+	//std::vector<std::string> syNameList;
+	char pszFileName[3][256] =
+	{
+		"C:\\bighouse\\US-Stock-Symbols\\nasdaq\\nasdaq_tickers.txt",
+		"C:\\bighouse\\US-Stock-Symbols\\nyse\\nyse_tickers.txt",
+		"C:\\bighouse\\US-Stock-Symbols\\amex\\amex_tickers.txt"
+	};
+	char pszExchange[3][64] =
+	{
+		"NASDAQ",
+		"NYSE",
+		"AMEX"
+	};
+	FILE *fp;
+	for (int k = 0; k < 3; k++)
+	{
+		int nRet = fopen_s(&fp, pszFileName[k], "r");
+		if (nRet != NULL)
+			return 0;
+		char pszTick[1024] = "";
+		syminfo info;
+		for (;;)
+		{
+			memset(pszTick, 0x00, sizeof(pszTick));
+			if (fgets(pszTick, 1024, fp) == NULL)
+				break;
+			pszTick[strlen(pszTick) - 1] = 0x00;
+			info.name = pszTick;
+			info.exchange = pszExchange[k];
+			allsymList.push_back(info);
+			//printf("%s\n", pszTemp);
+		}
+		fclose(fp);
+	}
+	int nStockCount = allsymList.size();
+	int nMktId;
+	int nEachSelect = 15;
+	
+	
+	for (int k = 0; k < nStockCount; k++)
+	{
+		nMktId = k + 20000;
+		pp->m_pClient->reqFundamentalData(nMktId, ContractSamples::StockForQueryExchange((char *)allsymList[k].name.data(), (char *)allsymList[k].exchange.data()),
+			"ReportsFinStatements", TagValueListSPtr());
+
+		if ((k + 1) % nEachSelect == 0)
+		{
+			std::this_thread::sleep_for(std::chrono::seconds(10));
+			for (int j = nMktId; j > nMktId - nEachSelect; j--)
+			{
+				pp->m_pClient->cancelFundamentalData(j);
+			}
+		}
+	}
+	return true;
+}
+
 DWORD WINAPI GetNasdaq100ReportSnapshot(LPVOID lpParam)
 {
 	TestCppClient *pp = (TestCppClient *)lpParam;
@@ -847,7 +916,7 @@ DWORD WINAPI GetNasdaq100ReportSnapshot(LPVOID lpParam)
 	for (int k = 0; k < nStockCount; k++)
 	{
 		nMktId = k;
-		pp->m_pClient->reqFundamentalData(nMktId, ContractSamples::StockForQueryNASDAQ((char *)syNasdaq100List[k].data()), "ReportSnapshot", TagValueListSPtr());
+		pp->m_pClient->reqFundamentalData(nMktId, ContractSamples::StockForQueryNASDAQ((char *)syNasdaq100List[k].data()), "ReportsFinSummary", TagValueListSPtr());
 		
 		if ((k + 1) % nEachSelect == 0)
 		{
@@ -1093,11 +1162,15 @@ void TestCppClient::contractOperations()
 	/*GetOptionStrikeList();
 	m_state = ST_CONTRACTOPERATION_ACK;
 	return;*/
-
 	DWORD ThreadID;
-	CreateThread(NULL, 0, &GetNasdaq100ReportSnapshot, (LPVOID)this, 0, &ThreadID);
+	CreateThread(NULL, 0, &GetAllStockReportsFinStatements, (LPVOID)this, 0, &ThreadID);
 	m_state = ST_CONTRACTOPERATION_ACK;
 	return;
+
+	/*DWORD ThreadID;
+	CreateThread(NULL, 0, &GetNasdaq100ReportSnapshot, (LPVOID)this, 0, &ThreadID);
+	m_state = ST_CONTRACTOPERATION_ACK;
+	return;*/
 	/*m_pClient->reqContractDetails(212, ContractSamples::IBMUSStockAtSmart());
 	std::this_thread::sleep_for(std::chrono::seconds(5));
 	m_state = ST_CONTRACTOPERATION_ACK;
@@ -2594,8 +2667,11 @@ void TestCppClient::fundamentalData(TickerId reqId, const std::string& data) {
 	}
 	else
 	{
-	    sprintf_s(pszDir, 256, "C:\\bighouse\\财务数据\\ReportsFinStatements\\%s\\%s.txt", pszInitDate, (char *)syNasdaq100List[reqId - 20000].data());
+
+		int nIndex = reqId - 20000;
+		sprintf_s(pszDir, 256, "C:\\bighouse\\美股财务数据\\ReportsFinStatements\\%s\\%s.txt", (char *)allsymList[nIndex].exchange.data(),(char *)allsymList[nIndex].name.data());
 	    gamelog::WriteLog(pszDir, (char *)data.c_str(),0);
+		printf("FundamentalData. ReqId: %ld\n", reqId);
     }
 
 	
